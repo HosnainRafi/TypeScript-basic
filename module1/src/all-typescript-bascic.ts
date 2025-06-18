@@ -336,3 +336,20 @@ const showdata = async () => {
     }
 }
 showdata()
+
+
+//mapped 
+type AreaNumber ={
+    height: number,
+    width:number
+}
+type height = AreaNumber["height"] //look up 
+
+type AreaString<T> = {
+    [key in keyof T]: T[key]
+}
+
+const area1 :AreaString<{height:number;width:string}> = {
+    height:500,
+    width:"200 cm"
+}
