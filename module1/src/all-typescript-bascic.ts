@@ -280,7 +280,7 @@ const student6 = addCourseTostudent({
 console.log({ student5 }, { student4 })
 
 
-//Contrints
+//Contraints
 const getPropertyValue = <X,Y extends keyof X> (obj:X,key:Y) => {
     return obj[key];
 }
@@ -353,3 +353,6 @@ const area1 :AreaString<{height:number;width:string}> = {
     height:500,
     width:"200 cm"
 }
+
+
+https://chatgpt.com/share/6852be42-6554-8013-8f34-8e8118d2ca06

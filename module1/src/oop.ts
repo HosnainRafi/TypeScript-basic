@@ -210,3 +210,135 @@ class Counter {
 
     console.log(Counter.increment());
 
+//Polymorphism
+class Person {
+    getSleep() {
+      console.log(`I am sleeping for 8 hours per day`);
+    }
+  }
+
+  class Student9 extends Person {
+    getSleep() {
+      console.log(`I am sleeping for 7 hours per day`);
+    }
+  }
+
+  class Developer extends Person {
+    getSleep() {
+      console.log(`I am sleeping for 6 hours per day`);
+    }
+  }
+
+  const getSleepHours = (param: Person):void => {
+    param.getSleep();
+  }
+
+  const person = new Person();
+  const student9 = new Student9();
+  const developer = new Developer();
+  getSleepHours(person);
+  getSleepHours(student9);
+  getSleepHours(developer);
+
+
+
+  class Shape {
+    getArea(): number {
+      return 0;
+    }
+  }
+
+  class Circle extends Shape{
+    radius: number;
+    constructor(radius:number) {
+      super()
+      this.radius = radius;
+    }
+
+    getArea(){
+      return Math.PI*this.radius*this.radius
+    }
+  }
+
+  class Rectangle extends Shape{
+    height: number;
+    width: number;
+    constructor(height:number,width:number) {
+      super()
+      this.height = height;
+      this.width = width;
+    }
+
+    getArea(){
+      return Math.PI*this.height*this.width
+    }
+  }
+
+
+  const shape = new Shape();
+  const circle = new Circle(25);
+  const rectangle = new Rectangle(10,15);
+   const getShapeArea = (param:Shape) =>{
+      console.log(param.getArea());
+
+   }
+
+   getShapeArea(circle);
+
+
+
+
+   // abstraction  : 1. interface 2. abstract
+
+  // idea
+  interface Vehicle1 {
+    startEngine(): void;
+    stopEngine(): void;
+    move(): void;
+  }
+
+  // real implementation
+  class Car1 implements Vehicle1 {
+    startEngine(): void {
+      console.log(`I am starting the car engine`);
+    }
+    stopEngine(): void {
+      console.log("I am stopping the car engine");
+    }
+    move(): void {
+      console.log(`I am moving the car`);
+    }
+    test() {
+      console.log(`I am just testing`);
+    }
+  }
+
+  const toyotaCar = new Car1();
+  toyotaCar.startEngine();
+
+  // abstract class
+
+  // idea
+  abstract class Car2 {
+    abstract startEngine(): void;
+    abstract stopEngine(): void;
+    abstract move(): void;
+    test() {
+      console.log(`I am just testing`);
+    }
+  }
+
+  class ToyotaCar extends Car2 {
+    startEngine(): void {
+      console.log("I am starting the car  engine");
+    }
+    stopEngine(): void {
+      console.log("I am stopping the car engine");
+    }
+    move(): void {
+      console.log("I am moving  the car");
+    }
+  }
+
+  // const hondaCar = new Car2();
+  // hondaCar.startEngine();
